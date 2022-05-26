@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 export default function App() {
   return (
     <NavigationContainer>
+      
       <BottomMenu  style={{backgroundColor: "#171717"}}/>
     </NavigationContainer>
   )

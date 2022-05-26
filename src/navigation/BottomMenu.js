@@ -12,6 +12,8 @@ import ShortCover from '../screens/ShortCover'
 // icon && styles
 import styles from './styles'
 import Icon from 'react-native-vector-icons/Ionicons';
+import { TabActions } from '@react-navigation/native'
+import Header from '../components/Header'
 
 const Menu = {
   HOME_SCREEN: 'HOME_SCREEN',
@@ -31,7 +33,7 @@ export default BottomMenu = () => {
       initialRouteName={Menu.HOME_SCREEN}
       screenOptions = {
         {
-          headerShown: false,
+          header: () => <Header />,
           tabBarActiveTintColor: '#ee2b75',
           tabBarBackground: ()=>{return <Text style={styles.bottomMenu}></Text>}
         }
