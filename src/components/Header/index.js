@@ -1,18 +1,34 @@
-import { SafeAreaView, View, Text, TextInput } from 'react-native'
+import { SafeAreaView, View, Text, TextInput, TouchableOpacity } from 'react-native'
 import React, {useState} from 'react'
 import styles from './styles';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+
 
 export default function Header() {
     const [text, setText] = useState('');
     return (
-        <SafeAreaView style = {styles.container}>
-            <View></View>
-            <TextInput 
-                style = {[styles.searchInput]}
-                placeholder = "Type here to translate!"
-                onChangeText = {newText => setText(newText)}
-                defaultValue = ''
-            />
+        <SafeAreaView style={[styles.root]}>
+            <SafeAreaView style = {styles.container}>
+                <TouchableOpacity style = {[styles.logoContainer]}>
+                    <Icon name = 'image' style={[styles.logo]}/>
+                </TouchableOpacity>
+
+                <View style={styles.searchContainer}>
+                    <TextInput 
+                        style = {[styles.searchInput]}
+                        placeholder = 'Tìm kiếm bài hát...'
+                        onChangeText = {newText => setText(newText)}
+                        defaultValue = ''
+                    />
+                    <TouchableOpacity style = {[styles.logoContainer, styles.micButton]}>
+                        <Icon name = 'microphone' style={[styles.logo, styles.micIcon]} />
+                    </TouchableOpacity>
+                </View>
+
+                <TouchableOpacity style = {[styles.logoContainer]}>
+                    <Icon name = 'bell' style={[styles.logo]}/>
+                </TouchableOpacity>
+            </SafeAreaView>
         </SafeAreaView>
     )
 }

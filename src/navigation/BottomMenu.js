@@ -11,7 +11,7 @@ import ShortCover from '../screens/ShortCover'
 
 // icon && styles
 import styles from './styles'
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import { TabActions } from '@react-navigation/native'
 import Header from '../components/Header'
 
@@ -34,7 +34,8 @@ export default BottomMenu = () => {
       screenOptions = {
         {
           header: () => <Header />,
-          tabBarActiveTintColor: '#ee2b75',
+          tabBarActiveTintColor: '#3cb252',
+          tabBarInactiveTintColor: '#ccc',
           tabBarBackground: ()=>{return <Text style={styles.bottomMenu}></Text>}
         }
       }    
@@ -43,14 +44,14 @@ export default BottomMenu = () => {
           name={Menu.PERSONAL_SCREEN} component={Personal}
           options={{
             title: 'Personal',
-            tabBarIcon: ({size, color})=>{return <Icon name="person" size={size} color={color}/>}
+            tabBarIcon: ({size, color})=>{return <Icon name="music" size={size} color={color}/>}
           }}
         />
         <Tab.Screen 
           name={Menu.KARAOKE_SCREEN} component={Karaoke}
           options={{
             title: 'Karaoke',
-            tabBarIcon: ({size, color})=>{return <Icon name="mic" size={size} color={color} />}
+            tabBarIcon: ({size, color})=>{return <Icon name="microphone-alt" size={size} color={color} />}
           }}
         />
         <Tab.Screen 
@@ -60,11 +61,11 @@ export default BottomMenu = () => {
               tabBarIcon: ({size, color})=>{return <Icon name="home" size={size} color={color} />}
           }}
         />
-        <Tab.Screen 
+        <Tab.Screen
           name={Menu.RADIO_SCREEN} component={Radio}
           options={{
             title: 'Radio',
-            tabBarIcon: ({size, color})=>{return <Icon name="radio" size={size} color={color} />}
+            tabBarIcon: ({size, color})=>{return <Icon name="headphones" size={size} color={color} />}
           }}
         />
         <Tab.Screen
