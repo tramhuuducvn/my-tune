@@ -4,7 +4,7 @@ const {width, height} = Dimensions.get('window')
 
 export default StyleSheet.create({
     bottomMenu: {
-        backgroundColor: '#231a2e',
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
         height: '100%'
     }
 })
