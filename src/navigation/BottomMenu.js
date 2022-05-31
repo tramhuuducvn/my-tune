@@ -1,7 +1,8 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Text, View } from 'react-native-paper'
-
+import { DefaultTheme } from '@react-navigation/native'
+import {Dimensions, StyleSheet} from 'react-native'
 //Screen tabs
 import Home from '../screens/Home'
 import Karaoke from '../screens/Karaoke'
@@ -12,69 +13,62 @@ import ShortCover from '../screens/ShortCover'
 // icon && styles
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { TabActions } from '@react-navigation/native'
 import Header from '../components/Header'
+import {BottomMenuStackName} from './StackName'
 
-const Menu = {
-  HOME_SCREEN: 'HOME_SCREEN',
-  KARAOKE_SCREEN: 'KARAOKE_SCREEN',
-  PERSONAL_SCREEN: 'PERSONAL_SCREEN',
-  RADIO_SCREEN: 'RADIO_SCREEN',
-  SHORT_COVER_SCREEN: 'SHORT_COVER_SCREEN'
-}
-
-const Tab = createBottomTabNavigator();
-
-
+const StackName = {...BottomMenuStackName}
+const Stack = createBottomTabNavigator();
 
 export default BottomMenu = () => {
   return (
-    <Tab.Navigator
-      initialRouteName={Menu.HOME_SCREEN}
+    <Stack.Navigator
+      initialRouteName={StackName.HOME_SCREEN}
       screenOptions = {
         {
           header: () => <Header />,
           tabBarActiveTintColor: '#3cb252',
           tabBarInactiveTintColor: '#ccc',
-          tabBarBackground: ()=>{return <Text style={styles.bottomMenu}></Text>}
+          tabBarBackground: ()=> (<Text style={styles.bottomMenu}></Text>),
         }
-      }    
+      }
     > 
-        <Tab.Screen 
-          name={Menu.PERSONAL_SCREEN} component={Personal}
+        <Stack.Screen
+          name={StackName.PERSONAL_SCREEN} component={Personal}
           options={{
             title: 'Personal',
             tabBarIcon: ({size, color})=>{return <Icon name="music" size={size} color={color}/>}
           }}
         />
-        <Tab.Screen 
-          name={Menu.KARAOKE_SCREEN} component={Karaoke}
+        <Stack.Screen 
+          name={StackName.KARAOKE_SCREEN} component={Karaoke}
           options={{
             title: 'Karaoke',
             tabBarIcon: ({size, color})=>{return <Icon name="microphone-alt" size={size} color={color} />}
           }}
         />
-        <Tab.Screen 
-          name={Menu.HOME_SCREEN} component={Home}
+        <Stack.Screen 
+          name={StackName.HOME_SCREEN} component={Home}
           options = {{
               title: 'Home',  
               tabBarIcon: ({size, color})=>{return <Icon name="home" size={size} color={color} />}
           }}
         />
-        <Tab.Screen
-          name={Menu.RADIO_SCREEN} component={Radio}
+        <Stack.Screen
+          name={StackName.RADIO_SCREEN} 
+          component={Radio}
           options={{
             title: 'Radio',
-            tabBarIcon: ({size, color})=>{return <Icon name="headphones" size={size} color={color} />}
+            tabBarIcon: ({size, color})=>{return <Icon name="headphones" size={size} color={color} />},
+            headerShown: false
           }}
         />
-        <Tab.Screen
-          name={Menu.SHORT_COVER_SCREEN} component={ShortCover}
+        <Stack.Screen
+          name={StackName.SHORT_COVER_SCREEN} component={ShortCover}
           options={{
             title: 'Short Cover',
             tabBarIcon: ({size, color})=>{return <Icon name="star" size={size} color={color} />}
           }}
         />
-    </Tab.Navigator>
+    </Stack.Navigator>
   )
 }

@@ -1,14 +1,20 @@
-import { View, Text, SafeAreaView } from 'react-native';
+import { StatusBar} from 'react-native';
 import React from 'react';
-import BottomMenu from './navigation/BottomMenu';
+import { NavigationContainer} from '@react-navigation/native';
+import {COLOR} from './assets/theme';
+import RootStack from './navigation/root';
+import * as SecureStore from 'expo-secure-store';
 
-import { NavigationContainer } from '@react-navigation/native';
+const AuthContext = React.createContext();
+
 
 export default function App() {
   return (
     <NavigationContainer>
-      
-      <BottomMenu  style={{backgroundColor: "#171717"}}/>
+      <StatusBar
+        backgroundColor= {COLOR.background}
+      />
+      <RootStack />
     </NavigationContainer>
   )
 }

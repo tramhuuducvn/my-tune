@@ -13,7 +13,7 @@ export default function Header() {
                     <Icon name = 'image' style={[styles.logo]}/>
                 </TouchableOpacity>
 
-                <View style={styles.searchContainer}>
+                <View style = {styles.searchContainer}>
                     <TextInput 
                         style = {[styles.searchInput]}
                         placeholder = 'Tìm kiếm bài hát...'
@@ -27,6 +27,7 @@ export default function Header() {
 
                 <TouchableOpacity style = {[styles.logoContainer]}>
                     <Icon name = 'bell' style={[styles.logo]}/>
+                    <View style={[styles.notice]}></View>
                 </TouchableOpacity>
             </SafeAreaView>
         </SafeAreaView>
